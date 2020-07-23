@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Gravitas+One&family=Sigmar+One&family=Single+Day&display=swap&family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Accueil</title>
+</head>
+<body>
+<main id="home">
+
+    <section class="banner">
+        <h1  id="titre">Time Bomb</h1>
+        <h2>Mariaty <br>Vs<br> Sherlock</h2>
+        <a href="#presentation" id="banner_link"><span></span></a>
+        <button class="btn btn-danger btn-lg game_start" type="button" data-toggle="modal" data-target="#start">Intégrér une partie</button>
+        <button class="btn btn-primary btn-lg game_register" type="button" data-toggle="modal" data-target="#register">Crée une partie</button>
+        
+        <div class="img">
+            <img src="assets/img/picture.png" alt="jeux">
+        </div>
+       
+        <div class="clouds">
+            <img src="assets/img/clouds/cloud1.png" style="--i:1;">
+            <img src="assets/img/clouds/cloud2.png" style="--i:2;">
+            <img src="assets/img/clouds/cloud3.png" style="--i:3;">
+            <img src="assets/img/clouds/cloud4.png" style="--i:4;">
+            <img src="assets/img/clouds/cloud5.png" style="--i:5;">
+            <img src="assets/img/clouds/cloud1.png" style="--i:1;">
+            <img src="assets/img/clouds/cloud2.png" style="--i:2;">
+            <img src="assets/img/clouds/cloud3.png" style="--i:3;">
+            <img src="assets/img/clouds/cloud4.png" style="--i:4;">
+            <img src="assets/img/clouds/cloud5.png" style="--i:5;">
+        </div>
+    </section>
+ 
+   
+
+    <section id="presentation">
+
+        <div class="col-sm-12 col-md-6" data-aos="fade-up" data-aos-easing="ease-in-out">
+            <img src="assets/img/playeur/joueur-8.jpg">
+        </div>
+
+        <p class="col-sm-12 col-md-6" data-aos="fade-up" data-aos-easing="ease-in-out">
+            Londres, 1890. Big Ben se tient fièrement au sommet de l’Elizabeth Tower, et le premier son de cette cloche retentit, d’écho en écho dans les rues de cette grande cité victorienne. Les passants profitent paisiblement des quelques rayons de soleil pour s’y balader nonchalamment. Au milieu des rires embaumant cette scène, Sherlock et ses compagnons se tiennent là, immobiles et silencieux.  
+            Entre deux tintements, une sonnerie s’élève de la cabine téléphonique du coin de la rue. Sherlock décroche le téléphone, le cœur serré. Son visage se crispe dès lors qu’il se lance dans une course folle vers l’immense horloge de Londres.
+            Au douzième coup de cloche sonnant midi, Moriarty et ses acolytes déclencheront la bombe qui fera exploser Big Ben.
+        </p>
+    </section>
+
+    <section id="regle">
+
+        <article class="col-sm-12 col-md-6"  data-aos="fade-up">
+            <h3>Votre objectif</h3>
+            <hr>
+            <p>
+                Moriarty a posé une bombe au cœur de Big Ben qu’il veut faire exploser, tandis que Sherlock se précipite pour la désamorcer. 
+                Au début de la partie, vous découvrez secrètement à quelle équipe, de Sherlock ou Moriarty, vous appartenez, et tentez d’identifier vos partenaires sans vous faire démasquer par vos adversaires. 
+                Tour à tour, choisissez un câble à couper chez un autre joueur pour, selon votre équipe, tenter de désamorcer ou de faire exploser la bombe.
+                L’équipe de Sherlock gagne la partie si elle parvient à désamorcer la bombe, tandis que l’équipe de Moriarty gagne la partie si elle parvient à faire exploser la bombe qui détruira Big Ben
+            </p>
+        </article>
+ 
+        <div class="col-sm-12 col-md-6"  data-aos="fade-up">
+            <img src="assets/img/bombe.png">
+        </div>
+       
+
+    </section>
+
+    <!---FORM-->
+    <div class="modal fade" id="register" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+                <form id="form_init_room">
+                    <div class="form-group">
+                      <label for="pseudo">Pseudo</label>
+                      <input type="text" class="form-control" id="pseudo"  name="pseudo" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </form>        
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermé</button>    
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="start" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+                <form id="form_join_room">
+                    <div class="form-group">
+                      <label for="pseudo">Pseudo</label>
+                      <input type="text" class="form-control" id="pseudo"  name="pseudo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pin">Pin</label>
+                        <input type="text" class="form-control" id="pin"  name="pin" required>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </form>        
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermé</button>    
+            </div>
+          </div>
+        </div>
+    </div>
+  
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="ajax.js"></script>
+<script>
+    //https://github.com/michalsnik/aos 
+    AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: 'aos-init', // class applied after initialization
+        animatedClassName: 'aos-animate', // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+        
+      
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 120, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 400, // values from 0 to 3000, with step 50ms
+        easing: 'ease', // default easing for AOS animations
+        once: false, // whether animation should happen only once - while scrolling down
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+      
+      });
+</script>
+</body>
+</html>

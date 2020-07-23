@@ -1,0 +1,76 @@
+/***************************/
+/*   GENERAL
+/***************************/
+body{
+    margin: 0;
+    background-color: white;
+    color:white;
+    font-family: 'Roboto';
+    font-size: 20px;
+    overflow-x: hidden;   
+}
+form,label{color:black}
+.click{cursor: pointer;}
+/*
+font-family: 'Alfa Slab One', cursive;
+font-family: 'Gravitas One', cursive;
+font-family: 'Sigmar One', cursive;
+font-family: 'Single Day', cursive;
+*/
+
+/***************************/
+/*   HOME
+/***************************/
+#home{background-color: black;}
+#home h1{font-family: 'Alfa Slab One', cursive;text-transform: uppercase;font-size: 5rem;text-align: center;}
+#home h2{font-family: 'Single Day', cursive;text-align: center;}
+#home .img{text-align: center;}
+#home .img img{width:100%;max-width: 80%;}
+
+
+#banner_link{color: white;z-index: 2;}
+#banner_link span{position: absolute;top:40%;left:50%;width: 30px;height:60px;border: 2px solid white;border-radius: 80px;scroll-behavior: smooth;transition: 2s;z-index: 10;}
+#banner_link span::before{content: ""; position: absolute;top:10px;left:40%;width:6px;height: 6px;background: white;border-radius: 60%;animation:bille 2s infinite;}
+
+.game_start{position: fixed;top:45%;right:0; z-index: 2;}
+.game_register{position: fixed;top:35%;right:0; z-index: 2;}
+.banner .clouds img{position: absolute;bottom:-180px;max-width: 100%;animation: animate calc(3s * var(--i)) linear infinite;}
+#presentation{padding :10% 0; display: flex;align-items: center;flex-wrap: wrap; justify-content: space-between;background-color: white;color:black ;}
+
+#regle{display: flex;justify-content: space-between;flex-wrap: wrap;padding: 30px;background-color: #BE6E44;}
+hr{width: 20px;height: 5px;}
+
+@keyframes bille{
+	0%{transform: translate(0,0); opacity:0;} 
+	40%{opacity:1}
+	80%{transform: translate(0,20px); opacity:0;} 
+	100%{opacity:0;}
+}
+
+@keyframes animate{
+    0%{opacity: 0;transform: scale(1);}
+    25%,75%{opacity: 1;}
+    100%{transform: scale(2);opacity: 0;}
+}
+
+
+@media (max-width: 800px) {
+    #banner_link span{position: absolute;top:50%;left:45%;}
+}
+
+/***************************/
+/*   ROOM BLUE
+/***************************/
+#room_blue{background-color: #505AFC;}
+#room_blue h1{font-family: 'Alfa Slab One', cursive;text-transform: uppercase;font-size: 5rem;text-align: center;}
+#room_blue .float-left{float: left;}
+#room_blue .element_center{margin-top: 50vh;transform: translateY(-50%); text-align: center;}
+
+
+/***************************/
+/*   ROOM RED
+/***************************/
+#room_red{background-color: #CC3A20;}
+#room_red h1{font-family: 'Alfa Slab One', cursive;text-transform: uppercase;font-size: 5rem;text-align: center;}
+#room_red .float-left{float: left;}
+#room_red .element_center{margin-top: 50vh;transform: translateY(-50%); text-align: center;}
