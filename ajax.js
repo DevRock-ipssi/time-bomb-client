@@ -43,28 +43,21 @@ $("#form_join_room").submit(function(e){
         data: $(this).serialize(), 
         success:function(response){
 
-            if(response.message){
+            if(response == "Le pin entré est invalide !"){
                 $("#start .modal-body").empty(); 
-                let html = "<p style='color:black'>"+ response.userData.pseudo + " " + response.message +"</p><p style='color:black'>Invitez d'autre personne à vous rejoindre en leur communiquant le pin.<br> PIN: "+ response.userData.pin + "</p><br><a href='room.html' class='btn btn-dark'>Accédez à la room</a>"; 
+                let html = "<p style='color:red'>"+ response +"</p>"; 
                 $("#start .modal-body").html(html);
-        
-                sessionStorage.setItem('room', JSON.stringify(response));  
-                sessionStorage.setItem('user_id', response.userJoining._id); 
-
             }else{
                    
                 $("#start .modal-body").empty(); 
-                let html = "<p style='color:black'>"+ response.message +"</p><p style='color:black'>Invitez d'autre personne à vous rejoindre en leur communiquant le pin.<br> PIN:</p><br><a href='room.html' class='btn btn-dark'>Accédez à la room</a>"; 
+                let html = "<p style='color:black'>Félicitation "+response.userData.pseudo + " " + response.message +"</p><p style='color:black'>Invitez d'autre personne à vous rejoindre en leur communiquant le pin.<br> PIN : " + response.userData.pin + "</p><br><a href='room.html' class='btn btn-dark'>Accédez à la room</a>"; 
                 $("#start .modal-body").html(html);
+                sessionStorage.setItem('room', JSON.stringify(response));  
+                sessionStorage.setItem('user_id', response.userJoining._id); 
                 $("#start_btn_close").prop("disabled" , true);
-                let room = JSON.stringify(response)
-                sessionStorage.setItem('room', room);
 
             }
          
-           
-
-            console.log(response)
         },
         error:function(){
             alert("Une erreur s'est produite"); 
