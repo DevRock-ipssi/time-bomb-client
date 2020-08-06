@@ -1,4 +1,5 @@
 import React from 'react';
+
 // Assets
 import cloud1 from '../assets/img/clouds/cloud1.png';
 import cloud2 from '../assets/img/clouds/cloud2.png';
@@ -10,7 +11,7 @@ import bomb from '../assets/img/bombe.png';
 import picture from '../assets/img/picture.png';
 
 // Styles
-import './Home.css';
+import './Home.styles.css';
 
 const Home = () => {
 	return (

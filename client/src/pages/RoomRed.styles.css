@@ -1,0 +1,7 @@
+/***************************/
+/*   ROOM RED
+/***************************/
+.room_red{background-color: #CC3A20;}
+.room_red h1{font-family: 'Alfa Slab One', cursive;text-transform: uppercase;font-size: 5rem;text-align: center;}
+.room_red .float-left{float: left;}
+.room_red .element_center{margin-top: 50vh;transform: translateY(-50%); text-align: center;}
