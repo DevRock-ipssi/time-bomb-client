@@ -12,11 +12,11 @@ const RoomAccessForm = ({
 }) => {
 	return (
 		<div
-			class="modal fade"
+			className="modal fade"
 			id={modalId}
 			data-backdrop="static"
 			data-keyboard="false"
-			tabindex="-1"
+			tabIndex="-1"
 			role="dialog"
 			aria-labelledby="staticBackdropLabel"
 			aria-hidden="true"

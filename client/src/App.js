@@ -10,10 +10,10 @@ const App = () => {
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
-			<Route exact path="/init" component={Room} />
-			<Route exact path="/join" component={Room} />
+			<Route exact path="/room" component={Room} />
+			<Route exact path="/room" component={Room} />
 		</Switch>
 	);
-};
+};  
 
 export default App;
