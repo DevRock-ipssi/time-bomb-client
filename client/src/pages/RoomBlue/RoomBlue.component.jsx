@@ -1,6 +1,6 @@
 import React from 'react';
 //Assets
-import backCard from '../assets/img/carte/back.jpg';
+import backCard from '../../assets/img/carte/back.jpg';
 
 // Styles
 import './RoomBlue.styles.css';
