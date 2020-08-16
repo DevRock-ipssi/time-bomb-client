@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 // Assets
 import cloud1 from '../../assets/img/clouds/cloud1.png';
 import cloud2 from '../../assets/img/clouds/cloud2.png';
@@ -13,96 +12,13 @@ import picture from '../../assets/img/picture.png';
 // Material-ui
 
 // Components
-import RoomAccessForm from '../../components/forms/RoomAccessForm';
+import CustomFormDialog from '../../components/CustomDialog/CustomFormDialog';
+
 
 // Styles
 import './Home.styles.css';
 
-import $ from 'jquery';
-
 const Home = () => {
-	const [ loading, setLoading ] = useState(false);
-	const history = useHistory();
-
-	//init room
-	const initRoom = () => {
-		$('#form_init_room').submit(function(e) {
-			e.preventDefault();
-
-			$('#form_init_room_btn').empty();
-			$('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...').appendTo(
-				'#form_init_room_btn'
-			);
-
-			$.post({
-				url: 'http://127.0.0.1:8080/users/init-room',
-				cache: false,
-				dataType: 'json',
-				ContentType: 'application/json;charset=utf-8',
-				data: $(this).serialize(),
-				success: function(response) {
-					$('#register .modal-body').empty();
-					let html =
-						"<p style='color:black'>Félicitation " +
-						response.info.gameMaster.pseudo +
-						" votre partie est crée.</p><p style='color:black'>Invitez vos proches à vous rejoindre en leur communiquant votre pin.<br> PIN: " +
-						response.info.pin +
-						"</p><br><a href='room.html' class='btn btn-dark'>Accédez à la room</a>";
-					$('#register .modal-body').html(html);
-					$('#register_btn_close').prop('disabled', true);
-					sessionStorage.setItem('room_gameMaster', JSON.stringify(response));
-					sessionStorage.setItem('user_id', response.info.gameMaster._id);
-					history.push('/room');
-				},
-				error: function() {
-					alert("Une erreur s'est produite");
-				}
-			});
-		});
-	};
-
-	//join room
-	const joinRoom = () => {
-		$('#form_join_room').submit(function(e) {
-			e.preventDefault();
-			$('#form_join_room_btn').empty();
-			$('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...').appendTo(
-				'#form_join_room_btn'
-			);
-
-			$.post({
-				url: 'http://127.0.0.1:8080/users/join-room',
-				cache: false,
-				dataType: 'json',
-				ContentType: 'application/json;charset=utf-8',
-				data: $(this).serialize(),
-				success: function(response) {
-					if (response == 'Le pin entré est invalide !') {
-						$('#start .modal-body').empty();
-						let html = "<p style='color:red'>" + response + '</p>';
-						$('#start .modal-body').html(html);
-					} else {
-						$('#start .modal-body').empty();
-						let html =
-							"<p style='color:black'>Félicitation " +
-							response.userData.pseudo +
-							' ' +
-							response.message +
-							"</p><p style='color:black'>Invitez d'autre personne à vous rejoindre en leur communiquant le pin.<br> PIN : " +
-							response.userData.pin +
-							"</p><br><a href='room.html' class='btn btn-dark'>Accédez à la room</a>";
-						$('#start .modal-body').html(html);
-						sessionStorage.setItem('room', JSON.stringify(response));
-						sessionStorage.setItem('user_id', response.userJoining._id);
-						$('#start_btn_close').prop('disabled', true);
-					}
-				},
-				error: function() {
-					alert("Une erreur s'est produite");
-				}
-			});
-		});
-	};
 
 	return (
 		<main id="home">
@@ -114,17 +30,10 @@ const Home = () => {
 				<a href="#presentation" id="banner_link">
 					<span />
 				</a>
-				<button className="btn btn-danger btn-lg game_start" type="button" data-toggle="modal" data-target="#start">
-					Créer une partie
-				</button>
-				<button
-					className="btn btn-primary btn-lg game_register"
-					type="button"
-					data-toggle="modal"
-					data-target="#register"
-				>
-					Intégrer une partie
-				</button>
+
+				<CustomFormDialog openDialogBtnText="Créer une partie" btnTextSubmit="Créer une partie de jeu" isCreateGameMode />
+
+				<CustomFormDialog dialogTitle="Intégration d'une partie de jeu existante" openDialogBtnText="Intégrer une partie" />
 
 				<div className="img">
 					<img src={picture} alt="jeux" />
@@ -179,13 +88,6 @@ const Home = () => {
 					<img src={bomb} alt={'bomb'} />
 				</div>
 			</section>
-
-			{/* <!--FORM--> */}
-			{/* Init a room */}
-			<RoomAccessForm hidePinInput modalId="register" onSubmitHandler={initRoom} />
-
-			{/* Join a room */}
-			<RoomAccessForm modalId="start" onSubmitHandler={joinRoom} />
 		</main>
 	);
 };

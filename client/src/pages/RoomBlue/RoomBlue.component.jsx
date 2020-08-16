@@ -9,7 +9,7 @@ const RoomBlue = () => {
 	return (
 		<main id="room_blue">
 			<h1 id="titre">Time Bomb</h1>
-			<a
+		{/* 	<a
 				tabindex="0"
 				class="btn btn-lg btn-danger popover-dismiss"
 				role="button"
@@ -18,7 +18,10 @@ const RoomBlue = () => {
 				data-content="à définir selon le rôle"
 			>
 				Votre objectif
-			</a>
+			</a> */}
+             <Link to="#" className="btn btn-lg btn-primary popover-dismiss">
+                    <Typography>Votre objectif</Typography>
+                </Link>
 			<section id="playeur" class="float-right">
 				<h2>Pseudo : Anta</h2>
 				<h3>Équipe : Sherlock</h3>

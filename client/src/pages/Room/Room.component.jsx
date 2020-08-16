@@ -1,23 +1,22 @@
 import React, { Fragment } from 'react';
-import Button from '@material-ui/core/Button/Button';
 //Assets
 import backCard from '../../assets/img/carte/back.jpg';
 
 // Styles
 import './Room.styles.css';
+import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 
 const Room = () => {
-	//init room
-	const initRoom = () => {};
-
-	//join room
-	const joinRoom = () => {};
 
 	return (
 		<Fragment>
 			<main id="room" class="room">
 				<h1 id="titre">Time Bomb</h1>
-				<a
+                <Link to="#" className="btn btn-lg btn-primary popover-dismiss">
+                    <Typography>Votre objectif</Typography>
+                </Link>
+				{/* <a
 					tabindex="0"
 					class="btn btn-lg btn-danger popover-dismiss"
 					role="button"
@@ -27,7 +26,7 @@ const Room = () => {
 					href="#"
 				>
 					Votre objectif
-				</a>
+				</a> */}
 				<section id="playeur" class="float-right">
 					<h4 id="pin">{""}</h4>
 					<h4 id="player_name">{""}</h4>
